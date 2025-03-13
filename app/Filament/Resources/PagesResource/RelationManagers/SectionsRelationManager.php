@@ -27,8 +27,7 @@ class SectionsRelationManager extends RelationManager
                     ->options([
                         'type1' => 'type1',
                         'type2' => 'type2',
-                        'type3' => 'type3',
-                        'type4' => 'type4',
+                        'break_line' => 'break_line',
                     ])
                     ->reactive()
                     ->required(),
