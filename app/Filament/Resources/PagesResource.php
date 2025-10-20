@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PagesResource\Pages;
 use App\Filament\Resources\PagesResource\RelationManagers\SectionsRelationManager;
-use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
@@ -12,7 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
@@ -57,12 +56,9 @@ class PagesResource extends Resource
                             ->maxSize(10240 * 2)
                             ->image(),
 
-
-                        Card::make([
-                            Checkbox::make('is_public')
-                                ->label('Public')
-                                ->inline()
-                        ])
+                        Checkbox::make('is_public')
+                            ->label('Public')
+                            ->inline()
                     ])
             ]);
     }
@@ -75,8 +71,9 @@ class PagesResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                BooleanColumn::make('is_public')
+                IconColumn::make('is_public')
                     ->label('Is Public')
+                    ->boolean()
                     ->sortable(),
 
             ])
