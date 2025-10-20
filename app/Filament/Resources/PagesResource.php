@@ -15,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class PagesResource extends Resource
 {
@@ -37,7 +38,7 @@ class PagesResource extends Resource
                             ->debounce(400)
                             ->afterStateUpdated(
                                 fn($state, callable $set) =>
-                                $set('slug', \Str::slug($state))
+                                $set('slug', Str::slug($state))
                             ),
 
                         TextInput::make('slug')
